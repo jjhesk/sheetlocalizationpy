@@ -42,7 +42,9 @@ The script also generates `LocalizationConstants.swift` files with translation c
 
 # Installation
 
-The scripts require Python 2.7+.
+The scripts require **Python 2.7+**.
+
+***iOS generation will not work in Python 3+***
 
 1. Linux
    TODO
@@ -138,7 +140,7 @@ generate Android localization files with the following commands:
 
 `cd /path/to/android/project`
 
-`python /path/to/sheet-localization/main.py /path/to/service_account_credentials.json 'Spreadsheet name' android`
+`python /path/to/sheet-localization/main.py /path/to/service_account_credentials.json 'Spreadsheet Key' android`
 
 This creates `res/values-<lang>/strings.xml` files with contents like this:
 
@@ -166,7 +168,7 @@ generate iOS localization files with the following commands:
 
 `cd /path/to/android/project`
 
-`python /path/to/sheet-localization/main.py /path/to/service_account_credentials.json 'Spreadsheet name' ios`
+`python /path/to/sheet-localization/main.py /path/to/service_account_credentials.json 'Spreadsheet Key' ios`
 
 This creates
 

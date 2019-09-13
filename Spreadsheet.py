@@ -16,11 +16,11 @@ class Spreadsheet(object):
     def __init__(self, gspreadClient):
         self.client = gspreadClient
         self.document = None
-    def open(self, spreadsheetName):
+    def open(self, spreadsheetKey):
         try:
-            self.document = self.client.open(spreadsheetName)
+            self.document = self.client.open_by_key(spreadsheetKey)
         except gspread.exceptions.SpreadsheetNotFound:
-            print(ERR_MSG_SPREADSHEET.format(spreadsheetName))
+            print(ERR_MSG_SPREADSHEET.format(spreadsheetKey))
             raise
     def sheet(self, sheetName):
         try:
