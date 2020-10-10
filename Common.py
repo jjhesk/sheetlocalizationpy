@@ -1,9 +1,9 @@
-
 from Translation import Translation
 
 CFG_KEY_ID = 0
 CFG_VALUE_ID = 1
 CFG_KEY_VALUE_COLUMNS_NB = 2
+
 
 def configurationFromPage(page):
     cfg = {}
@@ -17,6 +17,7 @@ def configurationFromPage(page):
             value = row[CFG_VALUE_ID]
             cfg[key] = value
     return cfg
+
 
 def parsePage(page, cfg):
     # Get raw page values.

@@ -1,13 +1,13 @@
-from Common import *
-from Spreadsheet import Spreadsheet
-
-from Android import *
-from IOS import *
-
 import sys
+
 import gspread
 # TODO: oauth2client is deprecated. Use recommended google-auth
 from oauth2client.service_account import ServiceAccountCredentials
+
+from Android import *
+from Common import *
+from IOS import *
+from Spreadsheet import Spreadsheet
 
 USAGE = """
 Usage: {0} /path/to/google_credentials.json SPREADSHEET_NAME TARGET
@@ -58,4 +58,3 @@ elif (targetName == "ios-swift"):
 else:
     print("ERROR: Unknown target")
     sys.exit(1)
-
