@@ -1,9 +1,18 @@
-from abc import abstractmethod, ABC
+from abc import abstractmethod, ABCMeta
 
 
-class InterfaceTransform(ABC):
+class InterfaceTransform(metaclass=ABCMeta):
+
     def __init__(self, args: any):
         pass
+
+    @classmethod
+    def __subclasshook__(cls, C):
+        if C.__abstractmethods__:
+            print(C.__abstractmethods__)
+            return False
+        else:
+            return True
 
     @abstractmethod
     def autoFileName(self) -> str:
@@ -32,9 +41,10 @@ class InterfaceTransform(ABC):
         pass
 
     @abstractmethod
-    def insert(self, input: str, newValues: str) -> str:
+    def wrap_file(self, input: str, newValues: list) -> list:
         """ transform the input to output
 
         insert the format of the file from the start to the end
         """
         pass
+

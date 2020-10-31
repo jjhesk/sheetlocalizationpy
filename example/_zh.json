@@ -1,0 +1,48 @@
+{
+
+
+
+
+ "bnt_balance": "餘額",
+ "bnt_lv_share": "推薦獎金級別",
+ "bnt_node_num": "節點數",
+ "bnt_lv_node": "節點級別",
+ "bnt_invcode": "推薦碼",
+ "bnt_all_income": "所有收入",
+ "bnt_all_wage": "所有賭注",
+ "bnt_main": "主頁",
+ "bnt_ninvest": "新投資",
+ "bnt_oinvest": "趕上投資",
+ "bnt_trxn": "交易狀態",
+ "bnt_bicode": "邀請碼",
+ "bnt_bet": "增加資金",
+ "bnt_prin": "本金",
+
+ "n_zero_a": "零額可用",
+ "n_address_empty": "地址不能為空",
+ "n_upline": "您的上線代碼無效",
+ "n_inv": "邀請碼無效",
+ "n_free": "無效的空閒金額",
+ "n_lock": "無效的鎖數量",
+ "n_copy": "複製成功",
+ "n_hashcfm": "哈希確認",
+ "n_deny": "被拒絕",
+
+ "p_total_income": "總收入",
+ "p_cap": "資本",
+ "p_hack": "駭客力量",
+ "p_enqueue": "排隊金額",
+ "p_shared": "分紅總額",
+ "p_reward": "獎勵總額",
+ "p_grant": "等待發放",
+ "p_close": "關",
+ "p_settle_withdraw": "提款",
+
+ "site_name_ec": "ETH資本",
+ "site_name_ms": "共濟會世界",
+ "msg_install": "請安裝metamask",
+ "msg_switch": "切換到主網絡我們的遊戲僅在主網絡上可用<br>請切換您的錢包。",
+ "msg_new_round": "新一輪資本融資即將開始！",
+ "msg_stay_tuned": "敬請關注。",
+ "msg_verified_ctr": "驗證合同地址",
+}

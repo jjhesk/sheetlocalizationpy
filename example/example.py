@@ -1,11 +1,18 @@
 # !/usr/bin/env python
 # coding: utf-8
+import os
 
-from googlesheettranslate.main import lib, Reader
+from googlesheettranslate.main import GoogleTranslationSheet
 
-builder = lib().builderCvs(True).builderTransformers("i18n").builderMeta(
+ROOT = os.path.join(os.path.dirname(__file__))
+
+builder = GoogleTranslationSheet().builderOutputTarget(ROOT).builderMeta(
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vR9-Nx_JTxmBP9rRTfGapdWWB2CQ4EBDBHwS8ZbIMg_6_yZcaWE7gVMs4vLd8npOnEUjJhpMnE3cPCS/pubhtml',
     'ethcap'
 )
-
-builder.builderReader(Reader().setLang("CN")).run(True)
+builder.GetReader().overrideFileFormat("_{}.json", True)
+builder.run(True, "CN")
+builder.run(True, "EN")
+builder.run(True, "ZH")
+builder.run(True, "JP")
+builder.run(True, "TH")
