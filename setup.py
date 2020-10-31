@@ -90,7 +90,7 @@ install_requires = [
 ]
 
 this_dir = os.path.dirname(__file__)
-readme_filename = os.path.join(this_dir, 'README.rst')
+readme_filename = os.path.join(this_dir, 'README.md')
 
 with open(readme_filename) as f:
     PACKAGE_LONG_DESCRIPTION = f.read()
@@ -102,7 +102,7 @@ setup(
     long_description=PACKAGE_LONG_DESCRIPTION,
     long_description_content_type='text/x-rst',
     keywords='google sheet cli sdk',
-    url='https://github.com/iexbase/tron-api-python',
+    url='https://gitee.com/jjhoc/sheet-localization-py',
     author='Shodan Vault & Heskemo',
     author_email='steein.shamsudin@gmail.com',
     license='MIT License',
