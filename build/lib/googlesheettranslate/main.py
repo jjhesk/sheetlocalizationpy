@@ -5,9 +5,9 @@ from typing import Iterable, Any
 import requests
 from bs4 import BeautifulSoup
 
-from googlesheettranslate.Err import TransformError
-from googlesheettranslate.transformers.Jsi18n import Jsi18n
-from googlesheettranslate.transformers.itransformer import InterfaceTransform
+from Err import TransformError
+from transformers.Jsi18n import Jsi18n
+from transformers.itransformer import InterfaceTransform
 
 statement = 'End : {}, IO File {}'
 

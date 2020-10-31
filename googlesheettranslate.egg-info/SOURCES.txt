@@ -18,3 +18,7 @@ googlesheettranslate/googlesheettech/cartrige/__init__.py
 googlesheettranslate/googlesheettech/modu/Spreadsheet.py
 googlesheettranslate/googlesheettech/modu/Translation.py
 googlesheettranslate/googlesheettech/modu/__init__.py
+googlesheettranslate/transformers/Jsi18n.py
+googlesheettranslate/transformers/__init__.py
+googlesheettranslate/transformers/corehelper.py
+googlesheettranslate/transformers/itransformer.py
