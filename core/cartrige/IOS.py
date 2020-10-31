@@ -46,7 +46,7 @@ func tr(_ key: L10n) -> String {
 \treturn key.string
 }
 
-private final class BundleToken {}
+private final modu BundleToken {}
 """
 
 def iosConstants(translations, languages):

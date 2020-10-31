@@ -1,13 +1,15 @@
+import socket
 import sys
 
 import gspread
+import socks
 # TODO: oauth2client is deprecated. Use recommended google-auth
 from oauth2client.service_account import ServiceAccountCredentials
 
-from Android import *
-from Common import *
-from IOS import *
-from Spreadsheet import Spreadsheet
+from core.Common import *
+from core.modu.Spreadsheet import Spreadsheet
+from core.cartrige.Android import *
+from core.cartrige.IOS import *
 
 USAGE = """
 Usage: {0} /path/to/google_credentials.json SPREADSHEET_NAME TARGET
@@ -28,6 +30,9 @@ credentialsFileName = sys.argv[1]
 documentName = sys.argv[2]
 targetName = sys.argv[3]
 
+socks.set_default_proxy(socks.SOCKS5, '127.0.0.1', 1086)
+socket.socket = socks.socksocket
+
 print("Connecting to Google Sheets API")
 scope = ["https://spreadsheets.google.com/feeds"]
 credentials = ServiceAccountCredentials.from_json_keyfile_name(credentialsFileName, scope)
@@ -47,12 +52,12 @@ srcPage = spreadsheet.sheet("SRC")
 
 print("Found languages: '{0}'".format(languages))
 
-if (targetName == "android"):
+if targetName == "android":
     androidGenerateLocalizationFiles(translations, languages)
-elif (targetName == "ios"):
+elif targetName == "ios":
     iosGenerateLocalizationFiles(translations, languages)
     iosGenerateConstantsFiles(translations, languages)
-elif (targetName == "ios-swift"):
+elif targetName == "ios-swift":
     iosGenerateLocalizationFiles(translations, languages)
     iosGenerateSwiftConstantsFile(translations, languages)
 else:

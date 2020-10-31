@@ -1,4 +1,4 @@
-from Translation import Translation
+from core.modu.Translation import Translation
 
 CFG_KEY_ID = 0
 CFG_VALUE_ID = 1
