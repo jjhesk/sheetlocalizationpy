@@ -246,7 +246,7 @@ class GoogleTranslationSheet:
         self._readerEngine = module_reader
         return self
 
-    def builderMeta(self, url: str, tabname: str) -> "lib":
+    def builderMeta(self, url: str, tabname: str = "") -> "lib":
         """
         this is the required for the basic meta information for loading google sheet
         :param url:
