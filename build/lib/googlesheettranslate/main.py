@@ -6,8 +6,8 @@ from typing import Iterable, Any
 import requests
 from bs4 import BeautifulSoup
 
-from Err import TransformError
-from transformers.Jsi18n import Jsi18n
+from .Err import TransformError
+from .transformers.Jsi18n import Jsi18n
 
 statement = 'End : {}, IO File {}'
 

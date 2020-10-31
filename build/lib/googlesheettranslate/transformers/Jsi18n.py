@@ -1,7 +1,7 @@
 from string import Template
 
-from googlesheettranslate.transformers.corehelper import *
-from googlesheettranslate.transformers.itransformer import InterfaceTransform
+from .corehelper import *
+from .itransformer import InterfaceTransform
 
 
 # coding=utf8
