@@ -100,7 +100,7 @@ setup(
     version=PACKAGE_VERSION,
     description='Non credential proved url scrapper for google sheet',
     long_description=PACKAGE_LONG_DESCRIPTION,
-    long_description_content_type='text/x-rst',
+    long_description_content_type='text/markdown',
     keywords='google sheet cli sdk',
     url='https://gitee.com/jjhoc/sheet-localization-py',
     author='Shodan Vault & Heskemo',

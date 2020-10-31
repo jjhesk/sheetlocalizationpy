@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: googlesheettranslate
-Version: 2.11.14
+Version: 2.11.15
 Summary: Non credential proved url scrapper for google sheet
 Home-page: https://gitee.com/jjhoc/sheet-localization-py
 Author: Shodan Vault & Heskemo
@@ -292,7 +292,7 @@ Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Requires-Python: >=3.5,<=4
-Description-Content-Type: text/x-rst
+Description-Content-Type: text/markdown
 Provides-Extra: tester
 Provides-Extra: docs
 Provides-Extra: dev
