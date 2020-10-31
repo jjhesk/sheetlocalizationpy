@@ -6,10 +6,10 @@ import socks
 # TODO: oauth2client is deprecated. Use recommended google-auth
 from oauth2client.service_account import ServiceAccountCredentials
 
-from core.Common import *
-from core.modu.Spreadsheet import Spreadsheet
-from core.cartrige.Android import *
-from core.cartrige.IOS import *
+from googlesheettranslate.googlesheettech.Common import *
+from googlesheettranslate.googlesheettech.modu.Spreadsheet import Spreadsheet
+from googlesheettranslate.googlesheettech.cartrige.Android import *
+from googlesheettranslate.googlesheettech.cartrige.IOS import *
 
 USAGE = """
 Usage: {0} /path/to/google_credentials.json SPREADSHEET_NAME TARGET

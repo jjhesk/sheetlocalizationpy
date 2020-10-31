@@ -1,7 +1,7 @@
 from string import Template
 
-from scrapcore.transformers.corehelper import *
-from scrapcore.transformers.itransformer import InterfaceTransform
+from googlesheettranslate.transformers.corehelper import *
+from googlesheettranslate.transformers.itransformer import InterfaceTransform
 
 
 # coding=utf8
