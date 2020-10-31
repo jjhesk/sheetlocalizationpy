@@ -54,6 +54,7 @@ fined() {
   echo "please update the package by using this command"
   echo "pip3 install googlesheettranslate==$VERSION"
   echo "pi googlesheettranslate==$VERSION"
+  echo "pc googlesheettranslate==$VERSION"
   echo "wait 30 seconds until it gets uploaded online... "
   #sleep 30
   #echo "ready and install it again.. "
