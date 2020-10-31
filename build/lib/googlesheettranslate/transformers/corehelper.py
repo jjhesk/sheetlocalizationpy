@@ -52,7 +52,17 @@ def RegexBoxStrAt(value: str) -> str:
 
     return normalizedValue
 
+def RegexBoxBR(value: str) -> str:
+    normalizedValue = ""
+    subst = "<br>"
+    r1 = r"<BR>"
+    result = re.sub(r1, subst, value, 0, re.MULTILINE | re.IGNORECASE)
+    if result:
+        normalizedValue = result
+    else:
+        normalizedValue = value
 
+    return normalizedValue
 def RegexBoxDF(value: str) -> str:
     subst = "%$1"
     normalizedValue = ""

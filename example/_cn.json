@@ -38,11 +38,11 @@
  "p_close": "关",
  "p_settle_withdraw": "提款",
 
- "site_name_ec": "ETH资本",
+ "site_name_ec": "Tron.资本",
  "site_name_ms": "共济会世界",
- "msg_install": "请安装metamask",
+ "msg_install": "请安装 IMTOKEN",
  "msg_switch": "切换到主网络我们的游戏仅在主网络上可用<br>请切换您的钱包。",
  "msg_new_round": "新一轮资本融资即将开始！",
  "msg_stay_tuned": "敬请关注。",
- "msg_verified_ctr": "验证合同地址",
+ "msg_verified_ctr": "验证合同地址"
 }

@@ -1,5 +1,3 @@
-from string import Template
-
 from .corehelper import *
 from .itransformer import InterfaceTransform
 
@@ -35,7 +33,7 @@ class Jsi18n(InterfaceTransform):
         return ""
 
     # You can manually specify the number of replacements by changing the 4th argument
-    def transformKeyValue(self, key: str, value: str) -> str:
+    def transformKeyValue(self, key: str, value: str, isLast: bool = False) -> str:
         if key.find(" ", 0) > -1:
             return self.transformComment(key)
 
@@ -45,11 +43,15 @@ class Jsi18n(InterfaceTransform):
         normalizedValue = RegexBoxNewLine(value)
         normalizedValue = RegexBoxDoubleQuote(normalizedValue)
         normalizedValue = RegexBoxDF(normalizedValue)
+        normalizedValue = RegexBoxBR(normalizedValue)
         normalizedValue = RegexBoxStrAt(normalizedValue)
         normalizedValue = RegexBoxAmp(normalizedValue)
 
         line_template = ' "{}": "{}"{}'
-        return line_template.format(key, normalizedValue, ",")
+        if isLast:
+            return line_template.format(key, normalizedValue, "")
+        else:
+            return line_template.format(key, normalizedValue, ",")
 
     def wrap_file(self, input: str, newValues: list) -> list:
         return ["{"] + newValues + ["}"]

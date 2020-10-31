@@ -38,11 +38,11 @@
  "p_close": "Close",
  "p_settle_withdraw": "Withdraw",
 
- "site_name_ec": "ETHCAPITAL",
+ "site_name_ec": "Tron.Finance",
  "site_name_ms": "Masonic World",
- "msg_install": "Please have the metamask install.",
- "msg_switch": "Switch to the main network our game is only available on the main network <br> please switch through your wallet.",
+ "msg_install": "Please using imtoken or similar wallet",
+ "msg_switch": "Only available to the main network <br> Please switch through your wallet.",
  "msg_new_round": "New Round Capital Funding is starting soon!",
  "msg_stay_tuned": "Stay tuned.",
- "msg_verified_ctr": "Verified Contract Address",
+ "msg_verified_ctr": "Verified Contract Address"
 }

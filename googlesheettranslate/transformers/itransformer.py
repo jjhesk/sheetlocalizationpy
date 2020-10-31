@@ -33,7 +33,7 @@ class InterfaceTransform(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def transformKeyValue(self, key: str, value: str) -> str:
+    def transformKeyValue(self, key: str, value: str, isLast: bool = False) -> str:
         """transform the key and value
 
         transform the key for each line
@@ -47,4 +47,3 @@ class InterfaceTransform(metaclass=ABCMeta):
         insert the format of the file from the start to the end
         """
         pass
-

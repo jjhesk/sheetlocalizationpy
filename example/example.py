@@ -12,6 +12,3 @@ builder = GoogleTranslationSheet().builderOutputTarget(ROOT).builderMeta(
 builder.GetReader().overrideFileFormat("_{}.json", True)
 builder.run(True, "CN")
 builder.run(True, "EN")
-builder.run(True, "ZH")
-builder.run(True, "JP")
-builder.run(True, "TH")
