@@ -7,6 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from .Err import TransformError
+from .transformers.Android import Android
 from .transformers.Jsi18n import Jsi18n
 
 statement = 'End : {}, IO File {}'
@@ -14,7 +15,8 @@ statement = 'End : {}, IO File {}'
 
 class Reader:
     Transformers = {
-        "i18n": Jsi18n
+        "i18n": Jsi18n,
+        "Android": Android
     }
 
     def __init__(self):
@@ -24,7 +26,7 @@ class Reader:
         self.transformerEngine = None
         self._output_file_format = None
         self._defaultEncoding = "utf8"
-        self._output_key_lowercase = False
+        self._output_key_lowercase = True
         self.__debug = False
         self.lines = list()
         self.target = ""
@@ -82,6 +84,7 @@ class Reader:
             self.transformerEngine = self.Transformers[tag]()
         else:
             self.transformerEngine = self.Transformers["i18n"]()
+
         return self
 
     def AppendCacheLine(self, info: str):
@@ -100,6 +103,7 @@ class Reader:
         :return:
         """
         self.lines = list()
+        self._output_file_format = False
 
     def Loop(self, reader: Iterable[Iterable[Any]]):
         """

@@ -82,10 +82,8 @@ EXTRAS_REQUIRE['dev'] = (
 
 install_requires = [
     "bs4",
-    "hexbytes>=0.1.0,<1.0.0",
     "requests>=2.16.0,<3.0.0",
     "base58",
-    "ecdsa",
     'attrdict',
 ]
 
