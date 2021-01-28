@@ -18,8 +18,8 @@ builder = GoogleTranslationSheet().builderOutputTarget(ROOT).builderGoogleSheet(
 
 # builder.GetReader().overrideFileFormat("_{}.json", True)
 builder.builderTransformers("Android")
-builder.run(True, "CN")
-builder.run(True, "EN")
+builder.run("CN")
+builder.run("EN")
 builder.builderTransformers("i18n")
-builder.run(True, "CN")
-builder.run(True, "EN")
+builder.run("CN")
+builder.run("EN")

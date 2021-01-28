@@ -12,7 +12,9 @@ builder = GoogleTranslationSheet().builderOutputTarget(ROOT).builderFromCSV("tr_
 builder.builderTransformers("Android")
 builder.run("CN")
 builder.run("EN")
+builder.run("RU")
 
 builder.builderTransformers("i18n")
-builder.run("CN")
+builder.run("RU")
+builder.run("FR")
 builder.run("EN")
