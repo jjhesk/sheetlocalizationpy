@@ -207,6 +207,7 @@ class GoogleTranslationSheet:
         'Accept-Language': 'en-US,en;q=0.5',
         'X-Requested-With': 'XMLHttpRequest'
     }
+
     proxies = {
         "http": "socks5://127.0.0.1:1086",
         "https": "socks5://127.0.0.1:1086",
@@ -218,12 +219,21 @@ class GoogleTranslationSheet:
         self.tab = ""
         self.engine_name = ""
         self.target_folder = ""
+        self.input_filepath = ""
         self.tab_content = dict()
         self.saveToCvs = True
+        self.reader_cvs = 0
+        self.reader_url = 0
+        self.reader_csv = 0
         self.reader_debug = False
+        self.connection_url_with_proxies = False
         self._readerEngine = Reader()
 
-    def builderCvs(self, enabled: bool) -> "lib":
+    def EnabledProxy(self) -> "GoogleTranslationSheet":
+        self.connection_url_with_proxies = True
+        return self
+
+    def builderCvs(self, enabled: bool) -> "GoogleTranslationSheet":
         """
         enable CVS file save to the local path
         :param enabled:
@@ -232,7 +242,7 @@ class GoogleTranslationSheet:
         self.saveToCvs = enabled
         return self
 
-    def builderOutputTarget(self, tar: str) -> "lib":
+    def builderOutputTarget(self, tar: str) -> "GoogleTranslationSheet":
         """
         save files at the specific target folder
         :param tar:
@@ -241,7 +251,7 @@ class GoogleTranslationSheet:
         self.target_folder = tar
         return self
 
-    def builderTransformers(self, engine_name: str) -> "lib":
+    def builderTransformers(self, engine_name: str) -> "GoogleTranslationSheet":
         """
         using the transform engine from the specification tool
         :param engine_name:
@@ -250,7 +260,7 @@ class GoogleTranslationSheet:
         self.engine_name = engine_name
         return self
 
-    def builderReaderDebug(self, de: bool) -> "lib":
+    def builderReaderDebug(self, de: bool) -> "GoogleTranslationSheet":
         """
         given the extra log detail to the reader
         :param de: yes or no
@@ -259,7 +269,7 @@ class GoogleTranslationSheet:
         self.reader_debug = de
         return self
 
-    def builderReader(self, module_reader: Reader) -> "lib":
+    def builderReader(self, module_reader: Reader) -> "GoogleTranslationSheet":
         """
         building reader module by external instance
         :param module_reader:
@@ -268,7 +278,27 @@ class GoogleTranslationSheet:
         self._readerEngine = module_reader
         return self
 
-    def builderMeta(self, url: str, tabname: str = "") -> "lib":
+    def builderFromCVS(self, filename: str = "") -> "GoogleTranslationSheet":
+        """
+        CVS file started
+        :param filename:
+        :return:
+        """
+        self.input_filepath = filename
+        self.reader_cvs = 1
+        return self
+
+    def builderFromCSV(self, filename: str = "") -> "GoogleTranslationSheet":
+        """
+        CVS file started
+        :param filename:
+        :return:
+        """
+        self.input_filepath = filename
+        self.reader_csv = 1
+        return self
+
+    def builderMeta(self, url: str, tabname: str = "") -> "GoogleTranslationSheet":
         """
         this is the required for the basic meta information for loading google sheet
         :param url:
@@ -277,6 +307,21 @@ class GoogleTranslationSheet:
         """
         self.exportedSheetUrl = url
         self.tab = tabname
+        self.reader_url = 1
+        return self
+
+    def builderGoogleSheet(self, sheetID: str = "", gridID: str = "", tabg: str = "") -> "GoogleTranslationSheet":
+        """
+        building by the sheet IDs
+        :param sheetID:
+        :param gridID:
+        :param tabg:
+        :return:
+        """
+        self.exportedSheetUrl = "https://docs.google.com/spreadsheets/d/e/{}/pubhtml?gid={}&single=true".format(sheetID,
+                                                                                                                gridID)
+        self.tab = tabg
+        self.reader_url = 1
         return self
 
     def GetReader(self) -> Reader:
@@ -294,16 +339,54 @@ class GoogleTranslationSheet:
         """
         return os.path.join(self.target_folder, "data{}.cvs".format(str(index)))
 
-    def run(self, proxies=False, Lang="CN"):
+    def _run_csv(self, Lang="CN"):
         """
-        run up the engine for given parameters
-        :param proxies: whether the connection is using VPN or no
-        :param Lang: the language column that matched to the sheet
+        read the cvs now
         :return:
         """
+        if self.reader_csv == 0:
+            raise TypeError("You have not set proper csv file path for the translation source.")
+
         self._readerEngine.newSheet()
         self._readerEngine.setLang(Lang)
-        if proxies == True:
+
+        with open(self.input_filepath, newline='') as csvfile:
+            line_ex = csv.reader(csvfile, delimiter=',', quotechar='|')
+            self.tab_content = [[y for y in row] for row in line_ex]
+            self._readerEngine.setDebug(self.reader_debug).setTarget(self.target_folder).useEngine(
+                self.engine_name).Loop(self.tab_content)
+
+    def _run_cvs(self, Lang="CN"):
+        """
+        read the cvs now
+        :return:
+        """
+        if self.reader_cvs == 0:
+            raise TypeError("You have not set proper cvs file path for the translation source.")
+
+        self._readerEngine.newSheet()
+        self._readerEngine.setLang(Lang)
+
+        with open(self.input_filepath, newline='') as csvfile:
+            line_ex = csv.reader(csvfile, delimiter=' ', quotechar='|')
+            self.tab_content = [[y for y in row[0].split(",")] for row in line_ex]
+            self._readerEngine.setDebug(self.reader_debug).setTarget(self.target_folder).useEngine(
+                self.engine_name).Loop(self.tab_content)
+
+    def _run_google_url(self, Lang="CN"):
+        """
+                run up the engine for given parameters
+                :param proxies: whether the connection is using VPN or no
+                :param Lang: the language column that matched to the sheet
+                :return:
+                """
+
+        if self.reader_url == 0:
+            raise TypeError("You have not set proper google sheet url for the translation source.")
+        self._readerEngine.newSheet()
+        self._readerEngine.setLang(Lang)
+
+        if self.connection_url_with_proxies == True:
             self.html = requests.get(self.exportedSheetUrl, headers=self.headers, proxies=self.proxies).text
         else:
             self.html = requests.get(self.exportedSheetUrl, headers=self.headers).text
@@ -311,11 +394,12 @@ class GoogleTranslationSheet:
         soup = BeautifulSoup(self.html, "lxml")
         tables = soup.find_all("table")
         index = 0
+
         for table in tables:
-            cvs_file = self.getFileNameInternal(index)
+            output_f = self.getFileNameInternal(index)
             self.tab_content = [[td.text for td in row.find_all("td")] for row in table.find_all("tr")]
             if self.saveToCvs:
-                with open(cvs_file, "w") as f:
+                with open(output_f, "w") as f:
                     wr = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
                     wr.writerows(self.tab_content)
 
@@ -323,3 +407,13 @@ class GoogleTranslationSheet:
                 self.engine_name).Loop(self.tab_content)
 
             index = index + 1
+
+    def run(self, Lang="CN"):
+        if self.reader_cvs == 1:
+            self._run_cvs(Lang)
+        elif self.reader_csv == 1:
+            self._run_csv(Lang)
+        elif self.reader_url == 1:
+            self._run_google_url(Lang)
+        else:
+            raise TypeError("Incomplete source set.")

@@ -7,9 +7,15 @@ from googlesheettranslate.main import GoogleTranslationSheet
 ROOT = os.path.join(os.path.dirname(__file__))
 sheetID = "fjosijfijsoeif"
 gid = "fjsoaiejfoijseoifjo"
+
+"""
 builder = GoogleTranslationSheet().builderOutputTarget(ROOT).builderMeta(
     "https://docs.google.com/spreadsheets/d/e/{}/pubhtml?gid={}&single=true".format(sheetID, gid)
 )
+"""
+
+builder = GoogleTranslationSheet().builderOutputTarget(ROOT).builderGoogleSheet(sheetID, gid)
+
 # builder.GetReader().overrideFileFormat("_{}.json", True)
 builder.builderTransformers("Android")
 builder.run(True, "CN")
