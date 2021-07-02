@@ -4,3 +4,7 @@ class CommentLineError(Exception):
 
 class TransformError(Exception):
     pass
+
+
+class WrongReaderType(TypeError):
+    pass

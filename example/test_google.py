@@ -14,7 +14,7 @@ builder = GoogleTranslationSheet().builderOutputTarget(ROOT).builderMeta(
 )
 """
 
-builder = GoogleTranslationSheet().builderOutputTarget(ROOT).builderGoogleSheet(sheetID, gid)
+builder = GoogleTranslationSheet().builderOutputTarget(ROOT).builderFromGoogleSheetMeta(sheetID, gid)
 
 # builder.GetReader().overrideFileFormat("_{}.json", True)
 builder.builderTransformers("Android")

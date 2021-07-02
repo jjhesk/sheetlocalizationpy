@@ -3,8 +3,14 @@ from abc import abstractmethod, ABCMeta
 
 class InterfaceTransform(metaclass=ABCMeta):
 
-    def __init__(self, args: any):
-        pass
+    def __init__(self, name: str = "", args: any = None):
+        self.name = name
+
+    def __eq__(self, profile: "InterfaceTransform"):
+        return self.name == profile.name  # I made it up the id property.
+
+    def __hash__(self):
+        return hash(self.name)
 
     @classmethod
     def __subclasshook__(cls, C):
