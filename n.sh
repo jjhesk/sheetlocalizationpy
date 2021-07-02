@@ -60,5 +60,6 @@ instruction(){
   echo "pip3 install googlesheettranslate==$VERSION"
   echo "pi googlesheettranslate==$VERSION"
   echo "pc googlesheettranslate==$VERSION"
+  echo "check out https://pypi.org/project/googlesheettranslate"
   echo "wait 30 seconds until it gets uploaded online... "
 }

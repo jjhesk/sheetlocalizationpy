@@ -1,10 +1,21 @@
-
 # Overview
 
 `sheet-localization` generates Android / iOS localization files from single Google Spreadsheet.
 
-![Screenshot](readme/android.png)
-![Screenshot](readme/ios_run.png)
+
+# Input supports:
+
+- CVS
+- CSV
+- Excel
+- GoogleSheetAPI
+- GoogleSheet URL 
+
+# Output supports:
+
+- JSON file
+- Android XML file
+
 
 # Localization 
 This is a python script that downloads localization strings and CI color information from a public [Google Sheet](https://docs.google.com/spreadsheets) and generates resource files for iOS and Android projects.
@@ -13,7 +24,7 @@ This is a python script that downloads localization strings and CI color informa
 
 ## Installation
 
-    pip install googlesheettranslate
+    pip3.8 install googlesheettranslate
 
 ## Prerequisites
 
@@ -296,6 +307,10 @@ func tr(_ key: L10n) -> String {
 
 private final class BundleToken {}
 ```
+
+
+![Screenshot](readme/android.png)
+![Screenshot](readme/ios_run.png)
 
 **Note**: file format is similar to what [SwiftGen](https://github.com/SwiftGen/SwiftGen)
 generates.

@@ -12,6 +12,9 @@ class InterfaceTransform(metaclass=ABCMeta):
     def __hash__(self):
         return hash(self.name)
 
+    def isCommonKey(self, key: str) -> bool:
+        return key.find(" ", 0) > -1  or key[0:1].isupper()
+
     @classmethod
     def __subclasshook__(cls, C):
         if C.__abstractmethods__:

@@ -24,7 +24,7 @@ class Android(InterfaceTransform):
 
     # You can manually specify the number of replacements by changing the 4th argument
     def transformKeyValue(self, key: str, value: str, isLast: bool = False) -> str:
-        if key.find(" ", 0) > -1:
+        if self.isCommonKey(key):
             return self.transformComment(key)
 
         if len(key) == 0:

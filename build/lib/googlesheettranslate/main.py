@@ -173,7 +173,7 @@ class GoogleTranslationSheet:
         read the cvs now
         :return:
         """
-        if self._reader_type == CSV:
+        if self._reader_type != CSV:
             raise WrongReaderType("You have not set proper csv file path for the translation source.")
 
         self._readerEngine.newSheet()
@@ -206,9 +206,32 @@ class GoogleTranslationSheet:
 
         with open(self.input_filepath, newline='') as csvfile:
             line_ex = csv.reader(csvfile, delimiter=' ', quotechar='|')
-            self.tab_content = [[y for y in row[0].split(",")] for row in line_ex]
-            self._readerEngine.setDebug(self.reader_debug).setTarget(self.target_folder).useEngine(
+            line_lis = list()
+            for row in line_ex:
+                if len(row) == 0:
+                    continue
+
+                blist = row[0].split(",")
+                newb = []
+                for h in blist:
+                    newb.append(self._process_s(h))
+                print(newb)
+
+                line_lis.append(newb)
+
+            self.tab_content = line_lis
+
+            # self.tab_content = [map(lambda x: self._process_s, line_lis)]
+            self._readerEngine.startRow(0).setDebug(self.reader_debug).setTarget(self.target_folder).useEngine(
                 self.engine_name).LoopMatrix(self.tab_content)
+
+    def _process_s(self, string: str) -> str:
+        if string.startswith('"'):
+            string = string[1:]
+
+        if string.endswith('"'):
+            string = string[:-1]
+        return string
 
     def _run_google_url(self, Lang="CN") -> None:
         """

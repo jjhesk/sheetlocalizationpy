@@ -1,18 +1,29 @@
 Metadata-Version: 2.1
 Name: googlesheettranslate
-Version: 2.11.28
+Version: 2.11.29
 Summary: Non credential proved url scrapper for google sheet
 Home-page: https://gitee.com/jjhoc/sheet-localization-py
 Author: Shodan Vault & Heskemo
 Author-email: steein.shamsudin@gmail.com
 License: MIT License
-Description: 
-        # Overview
+Description: # Overview
         
         `sheet-localization` generates Android / iOS localization files from single Google Spreadsheet.
         
-        ![Screenshot](readme/android.png)
-        ![Screenshot](readme/ios_run.png)
+        
+        # Input supports:
+        
+        - CVS
+        - CSV
+        - Excel
+        - GoogleSheetAPI
+        - GoogleSheet URL 
+        
+        # Output supports:
+        
+        - JSON file
+        - Android XML file
+        
         
         # Localization 
         This is a python script that downloads localization strings and CI color information from a public [Google Sheet](https://docs.google.com/spreadsheets) and generates resource files for iOS and Android projects.
@@ -21,7 +32,7 @@ Description:
         
         ## Installation
         
-            pip install googlesheettranslate
+            pip3.8 install googlesheettranslate
         
         ## Prerequisites
         
@@ -304,6 +315,10 @@ Description:
         
         private final class BundleToken {}
         ```
+        
+        
+        ![Screenshot](readme/android.png)
+        ![Screenshot](readme/ios_run.png)
         
         **Note**: file format is similar to what [SwiftGen](https://github.com/SwiftGen/SwiftGen)
         generates.
