@@ -107,7 +107,7 @@ class Reader:
         :return:
         """
         self.lines = list()
-        self._output_file_format = False
+        # self._output_file_format = False
 
     def _getfilename(self) -> str:
         if self._output_key_lowercase:
