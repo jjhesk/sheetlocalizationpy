@@ -4,10 +4,10 @@ from typing import Iterable, Any
 
 import pandas as pd
 
-from x.Err import TransformError
-from x.transformers.Android import Android
-from x.transformers.Jsi18n import Jsi18n
-from x.transformers.PyLan import PyLan
+from .Err import TransformError
+from .transformers.Android import Android
+from .transformers.Jsi18n import Jsi18n
+from .transformers.PyLan import PyLan
 
 statement = 'End : {}, IO File {}'
 

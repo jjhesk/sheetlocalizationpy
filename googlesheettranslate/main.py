@@ -9,8 +9,8 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-from .Readers import Reader
-from .Readers.Err import WrongReaderType
+from .x import Reader
+from .x.Err import WrongReaderType
 
 statement = 'End : {}, IO File {}'
 
