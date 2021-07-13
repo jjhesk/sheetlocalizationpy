@@ -11,7 +11,10 @@ version
 .idea/vcs.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/inspectionProfiles/profiles_settings.xml
+example/_cn.json
 example/_en.json
+example/_fr.json
+example/_ru.json
 example/_zh.json
 example/data0.cvs
 example/data2.cvs
@@ -21,6 +24,9 @@ example/test_cvs.py
 example/test_excel.py
 example/test_google.py
 example/tr_csv.csv
+example/values-cn.xml
+example/values-en.xml
+example/values-ru.xml
 googlesheettranslate/__init__.py
 googlesheettranslate/main.py
 googlesheettranslate.egg-info/PKG-INFO
