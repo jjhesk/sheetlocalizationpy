@@ -109,7 +109,7 @@ class Reader:
         self.lines = list()
         self._output_file_format = False
 
-    def getFileNameInternal(self) -> str:
+    def _getfilename(self) -> str:
         if self._output_key_lowercase:
             keyname = self.column.lower()
         else:
@@ -166,7 +166,7 @@ class Reader:
 
         self.lines = self.transformerEngine.wrap_file("", self.lines)
 
-        file = self.getFileNameInternal()
+        file = self._getfilename()
         self.writeFile("", file)
         file_io = open(file, 'a')
         for line in self.lines:
@@ -228,7 +228,7 @@ class Reader:
 
         self.lines = self.transformerEngine.wrap_file("", self.lines)
 
-        file = self.getFileNameInternal()
+        file = self._getfilename()
         self.writeFile("", file)
         file_io = open(file, 'a')
         for line in self.lines:
@@ -291,7 +291,7 @@ class Reader:
 
         self.lines = self.transformerEngine.wrap_file("", self.lines)
 
-        file = self.getFileNameInternal()
+        file = self._getfilename()
         self.writeFile("", file)
         file_io = open(file, 'a')
         for line in self.lines:
