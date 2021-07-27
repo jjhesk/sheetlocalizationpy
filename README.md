@@ -13,7 +13,8 @@
 
 # Output supports:
 
-- JSON file
+- JSON file general for [JS i18n](http://i18njs.com/)
+- python [i18n JSON](https://github.com/danhper/python-i18n)
 - Android XML file
 
 

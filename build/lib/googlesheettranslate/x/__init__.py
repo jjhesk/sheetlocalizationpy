@@ -164,7 +164,7 @@ class Reader:
                     self.transformerEngine.transformKeyValue(raw_key, raw_value, index == df.size / 2 - 1)
                 )
 
-        self.lines = self.transformerEngine.wrap_file("", self.lines)
+        self.lines = self.transformerEngine.wrap_file(self.column, self.lines)
 
         file = self._getfilename()
         self.writeFile("", file)
@@ -226,7 +226,7 @@ class Reader:
 
             count = count + 1
 
-        self.lines = self.transformerEngine.wrap_file("", self.lines)
+        self.lines = self.transformerEngine.wrap_file(self.column, self.lines)
 
         file = self._getfilename()
         self.writeFile("", file)
@@ -289,7 +289,7 @@ class Reader:
 
             count = count + 1
 
-        self.lines = self.transformerEngine.wrap_file("", self.lines)
+        self.lines = self.transformerEngine.wrap_file(self.column, self.lines)
 
         file = self._getfilename()
         self.writeFile("", file)

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: googlesheettranslate
-Version: 2.11.33
+Version: 2.11.34
 Summary: Non credential proved url scrapper for google sheet
 Home-page: https://gitee.com/jjhoc/sheet-localization-py
 Author: Shodan Vault & Heskemo
@@ -21,7 +21,8 @@ Description: # Overview
         
         # Output supports:
         
-        - JSON file
+        - JSON file general for [JS i18n](http://i18njs.com/)
+        - python [i18n JSON](https://github.com/danhper/python-i18n)
         - Android XML file
         
         
