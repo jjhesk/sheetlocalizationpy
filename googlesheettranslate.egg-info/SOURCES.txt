@@ -11,6 +11,8 @@ version
 .idea/vcs.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/inspectionProfiles/profiles_settings.xml
+example/__ien.json
+example/__izh.json
 example/_cn.json
 example/_en.json
 example/_fr.json
